@@ -20,7 +20,7 @@ const QuickSearch = () => {
 
         <div className="flex flex-col items-center gap-1">
           <Image width={35} height={35} src="/farm-icon.png" alt="Hotel" />
-          <p className="text-sm text-grayPrimary">Farm</p>
+          <p className="text-sm text-grayPrimary">Fazenda</p>
         </div>
 
         <div className="flex flex-col items-center gap-1">
