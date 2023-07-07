@@ -20,6 +20,8 @@ const Header = () => {
     signOut();
   };
 
+  const handleMyTripsClick = () => {};
+
   return (
     <header className="container mx-auto p-5 py-0 h-[93px] flex justify-between items-center">
       <Link href="/">
@@ -54,9 +56,15 @@ const Header = () => {
           />
 
           {menuIsOpen && (
-            <div className="z-50 absolute top-14 left-0 w-full h-full bg-white rounded-lg shadow-md flex flex-col justify-center items-center">
+            <div className="z-50 absolute top-14 left-0 w-full h-[100px] bg-white rounded-lg shadow-md flex flex-col justify-center items-center">
+              <Link href="/my-trips">
+                <button className="text-primary bb-2 border-b border-grayLighter border-solid text-sm font-semibold">
+                  Minhas Viagens
+                </button>
+              </Link>
+
               <button
-                className="text-primary text-sm font-semibold"
+                className="text-primary pt-2 text-sm font-semibold"
                 onClick={handleLogoutClick}
               >
                 Logout
