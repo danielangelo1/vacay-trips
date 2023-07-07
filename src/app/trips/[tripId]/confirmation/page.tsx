@@ -2,7 +2,7 @@
 
 import Button from "@/components/Button";
 import { Trip } from "@prisma/client";
-import { format } from "date-fns";
+import { format, set } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
@@ -31,9 +31,15 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
           endDate: searchParams.get("endDate"),
         }),
       });
-      const { trip, totalPrice } = await response.json();
-      setTrip(trip);
-      setTotalPrice(totalPrice);
+
+      const res = await response.json();
+
+      if (res?.error?.code === "TRIP_ALREADY_RESERVED") {
+        return router.push(`/`);
+      }
+
+      setTrip(res.trip);
+      setTotalPrice(res.totalPrice);
     };
 
     if (status === "unauthenticated") {
@@ -41,7 +47,7 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
     }
 
     fetchTrip();
-  }, [status]);
+  }, [status, params, router, searchParams]);
 
   if (!trip) return null;
 
