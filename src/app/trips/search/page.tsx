@@ -19,8 +19,7 @@ const Trips = () => {
   useEffect(() => {
     const fetchTrips = async () => {
       const response = await fetch(
-        `/api/trips/search?text=${
-          searchParams.get("text") ?? ""
+        `/api/trips/search?text=${searchParams.get("text") ?? ""
         }&startDate=${searchParams.get("startDate")}&budget=${searchParams.get(
           "budget"
         )}`
@@ -35,17 +34,17 @@ const Trips = () => {
   }, []);
 
   return (
-    <div className="container mx-auto flex flex-col items-center p-5">
-      <h1 className="text-primaryDarker font-semibold text-xl">
+    <div className="container mx-auto flex flex-col items-center lg:items-start p-5">
+      <h1 className="text-primaryDarker font-semibold text-xl lg:text-[2.5rem] lg:w-full lg:text-left">
         Viagens Encontradas
       </h1>
-      <h2 className="text=grayPrimary font-medium mb-5">
+      <h2 className="text=grayPrimary font-medium mb-5 lg:mt-6 lg:w-full lg:text-left">
         {trips.length > 0
           ? "  Listamos as melhores viagens para você!"
           : "Não encontramos nada nos seus parâmetros =("}
       </h2>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 lg:grid lg:grid-cols-4 lg:gap-10">
         {trips?.map((trip) => (
           <TripItem key={trip.id} trip={trip} />
         ))}
