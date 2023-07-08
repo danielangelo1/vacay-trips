@@ -40,11 +40,15 @@ const MyTrips = () => {
   return (
     <div className="container mx-auto p-5">
       <h1 className="font-semibold text-primaryDarker text-xl">
-        Minhas viagens
+        Minhas Viagens
       </h1>
       {reservations.length > 0 ? (
         reservations.map((reservation) => (
-          <UserReservationItem key={reservation.id} reservation={reservation} />
+          <UserReservationItem
+            key={reservation.id}
+            reservation={reservation}
+            fetchReservations={fetchReservations}
+          />
         ))
       ) : (
         <div className="flex flex-col">
