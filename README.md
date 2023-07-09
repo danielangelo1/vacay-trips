@@ -38,7 +38,7 @@ Vacay trips
 
 ## 👨🏻‍💻 About the project
 
-- <p style="color: red;">Sistema web de reservas de Viagens, estilo AirBnB. Projeto desenvolvido durante a Full Stack Week ministrada por Felipe Rocha.</p>
+- <p style="color: red;">Sistema web de reservas de Viagens, estilo AirBnB. Projeto desenvolvido durante a Full Stack Week ministrada por Felipe Rocha. A plataforma possibilita aos usuários procurar e agendar viagens, explorar informações detalhadas sobre os trajetos, controlar suas reservas, fazer login com suas contas do Google e efetuar pagamentos através da integração com a ferramenta Stripe.</p>
 
 ## 🚀 Technologies
 
@@ -50,6 +50,9 @@ Technologies that I used to develop this web client
 - [NodeJS](https://nodejs.org/en)
 - [TailwindCSS](https://tailwindcss.com/)
 - [PostgreeSQL](https://www.postgresql.org/)
+- [Prisma ORM](https://www.prisma.io/)
+- [Next Auth](https://next-auth.js.org/)
+- [Stripe](https://stripe.com/)
 - and more!
 
 ## 💻 Getting started
@@ -69,9 +72,26 @@ $ git clone https://github.com/danielangelo1/vacay-trips.git && cd vacay-trips
 # Install the dependencies
 $ yarn
 
+# Update  the environment variable
+
+DATABASE_URL=
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+NEXT_PUBLIC_STRIPE_KEY=
+STRIPE_SECRET_KEY=
+
+HOST_URL=http://localhost:3000
+NEXTAUTH_SECRET=
+
+$ Configure the database
+npx prisma migrate dev
+
 
 # Start the client
 $ yarn dev
+
 ```
 
 
