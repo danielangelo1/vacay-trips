@@ -85,7 +85,7 @@ STRIPE_SECRET_KEY=
 HOST_URL=http://localhost:3000
 NEXTAUTH_SECRET=
 
-$ Configure the database
+# Configure the database
 npx prisma migrate dev
 
 
